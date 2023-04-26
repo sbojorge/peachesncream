@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Raleway&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #030203;
+    font-size: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff6f5;
+}
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Homemade Apple', cursive;
+    font-weight: bolder;
+    color: #030203;
+}
+
+h1 {
+    font-size: 2.56rem;
+}
+
+h2 {
+    font-size: 2.28rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.71rem;
+}
+
+h5 {
+    font-size: 1.43rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+/* Header */
+
+.nav-wrapper,
+nav ul a,
+i.material-icons,
+a.waves-effect.btn {
+    color: #030203;
+}
+
+.nav-wrapper{
+    padding-right: 4rem;
+}
+
+nav ul a {
+    font-weight: bold;
+}
+
+a.waves-effect.btn{
+    background-color: #8c9f38;
+    border-radius: 23px;
+}
+
+/* Main */
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Footer */
+
+footer {
+    background-color: #BD8180;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

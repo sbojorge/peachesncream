@@ -1,0 +1,38 @@
+{% load static %} 
+
+<header>
+    <!-- Desktop navbar -->
+    <nav>
+        <div class="nav-wrapper">
+            <!-- <a href="#" class="brand-logo">Peaches n cream</a> -->
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                <li><a href="#">Logout</a></li>
+                <li><a href="#">My lists</a></li>
+                <li><a href="#">Edit list</a></li> <!-- Edit list name and items including adding new items -->
+                <li><a href="#">Delete list</a></li>
+                {% else %}
+                <li><a href="{% url 'landing' %}">Home</a></li>
+                <li><a href="#">Create a list</a></li>
+                <li><a href="#" class="waves-effect btn">SIGN UP</a></li>
+                <li><a href="#">Sign in</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile navbar -->
+
+    <ul class="sidenav" id="mobile-demo">
+        {% if user.is_authenticated %}
+            <li><a href="#">Logout</a></li>
+            <li><a href="#">New list</a></li>
+            <li><a href="#">Edit list</a></li>
+        {% else %}
+            <li><a href="#">Home</a></li>
+            <li><a href="#">SIGN UP</a></li>
+            <li><a href="#">Sign in</a></li>
+        {% endif %}
+    </ul>    
+</header>
