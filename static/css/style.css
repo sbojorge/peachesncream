@@ -55,7 +55,8 @@ h6 {
 .nav-wrapper,
 nav ul a,
 i.material-icons,
-a.waves-effect.btn {
+.waves-effect,
+label {
     color: #030203;
 }
 
@@ -67,15 +68,23 @@ nav ul a {
     font-weight: bold;
 }
 
-a.waves-effect.btn{
-    background-color: #8c9f38;
-    border-radius: 23px;
-}
-
 /* Main */
 
 main {
     flex: 1 0 auto;
+}
+
+/* Sign up, Sign in and Logout pages */
+
+label {
+    font-size: 1rem;
+}
+
+.waves-effect {
+    background-color: #8c9f38;
+    border-radius: 23px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
 }
 
 /* Footer */
