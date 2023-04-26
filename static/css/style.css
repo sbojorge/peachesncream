@@ -87,3 +87,17 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+footer p {
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.social-links {
+    padding-bottom: 0.5rem;
+}
+
+.social-links img {
+    height: 2rem;
+    width: 2rem;
+}
