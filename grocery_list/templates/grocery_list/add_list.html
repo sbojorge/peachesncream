@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Create shopping list{% endblock %}
+
+{% block content %}
+<div class=" container row">
+    <div class="col s12 m8 l9">
+        <h1>Create a grocery shopping list</h1>
+        <div class="divider"></div>
+        <div class="section">
+            <form action="POST">
+                {% csrf_token %} 
+                {{ form|crispy }}
+                <button type="submit">Create list</button>
+            </form>             
+
+        </div>
+    </div>
+</div>
+{% endblock %} 

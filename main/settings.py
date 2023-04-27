@@ -171,7 +171,7 @@ USE_TZ = True
 # Account Setup
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)

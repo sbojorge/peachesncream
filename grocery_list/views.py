@@ -1,3 +1,18 @@
-from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from .models import Grocery
+from .forms import GroceryForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
+
+class ShoppingCreateView(LoginRequiredMixin, CreateView):
+    """
+    Create a grocery shopping list view
+    """
+    model = Grocery
+    template_name = 'grocery_list/add_list.html'
+    form_class = GroceryForm
+    success_url = '/grocery_list/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ShoppingCreateView, self).form_valid(form)
