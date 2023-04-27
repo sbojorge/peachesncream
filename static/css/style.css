@@ -75,6 +75,26 @@ main {
     flex: 1 0 auto;
 }
 
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    height: 35%;
+    width: 35%;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
+
+#container p {
+    text-align: center;
+}
+
+
+
 /* Form */
 
 .waves-effect {
@@ -152,3 +172,13 @@ footer p {
     height: 2rem;
     width: 2rem;
 }
+
+/* Media queries */
+
+/* Small screens until 600px */
+@media  screen and (max-width: 590px) {
+    #container {
+       margin-top: 4rem;
+    }
+}
+
