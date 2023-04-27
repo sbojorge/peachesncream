@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from djrichtextfield.models import RichTextField
 
 
 class Grocery(models.Model):
@@ -10,7 +11,8 @@ class Grocery(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              related_name='grocery_owner')
     created_on = models.DateTimeField(auto_now_add=True)
-    item = models.CharField(max_length=200, null=False, blank=False)
+    updated_on = models.DateTimeField(auto_now=True)
+    item = RichTextField(max_length=5000, null=False, blank=False)
 
     class Meta:
         ordering = ['-created_on']
