@@ -24,6 +24,8 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Homemade Apple', cursive;
     font-weight: bolder;
     color: #030203;
+    padding: 1rem 0;
+    margin: auto;
 }
 
 h1 {
@@ -76,10 +78,30 @@ main {
 
 /* Sign up, Sign in and Logout pages */
 
+#title {
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+p {
+    padding: 0.5rem 0;
+    margin: auto;
+}
+
+#content {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 label {
     font-size: 1rem;
 }
 
+form > button {
+    margin-top: 1rem;
+    
+}
 .waves-effect {
     background-color: #8c9f38;
     border-radius: 23px;
