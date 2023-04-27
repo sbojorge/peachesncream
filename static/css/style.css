@@ -57,8 +57,7 @@ h6 {
 .nav-wrapper,
 nav ul a,
 i.material-icons,
-.waves-effect,
-label {
+.waves-effect {
     color: #030203;
 }
 
@@ -76,7 +75,20 @@ main {
     flex: 1 0 auto;
 }
 
-/* Sign up, Sign in and Logout pages */
+/* Form */
+
+.waves-effect {
+    background-color: #8c9f38;
+    border-radius: 23px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+form > button {
+    margin-top: 1rem;
+}
+
+/*Sign in */
 
 #title {
     margin-top: 2rem;
@@ -94,19 +106,27 @@ p {
     padding-bottom: 1rem;
 }
 
-label {
-    font-size: 1rem;
+/* Sign up */
+
+.row {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+/* Logout */
+
+#logout {
+    margin-top: 4rem;
 }
 
-form > button {
-    margin-top: 1rem;
-    
+#title-1 {
+    margin-top: 2rem;
+    padding-top: 2rem;
 }
-.waves-effect {
-    background-color: #8c9f38;
-    border-radius: 23px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
+
+#content-1 {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* Footer */
