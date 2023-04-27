@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 import dj_database_url
+from django.contrib.messages import constants as messages
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -63,6 +64,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MESSAGES_TAGS = {
+    messages.DEBUG: 'brown lighten-4',
+    messages.INFO: 'amber accent-4',
+    messages.SUCCESS: 'light-blue accent-3',
+    messages.WARNING: 'indigo accent-1',
+    messages.ERROR: 'teal lighten-3',
+}
 
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
