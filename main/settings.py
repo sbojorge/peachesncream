@@ -40,19 +40,24 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
-    'cloudinary',
-    'materialize',
-    'crispy_forms',
-    'crispy_forms_materialize',
-    'djrichtextfield',
+    
+    # Apps
     'home',
     'grocery_list',
+
+    # Other
+    'crispy_forms',
+    'crispy_forms_materialize',
+    'materialize',
+    'cloudinary',
+    'cloudinary_storage',
+    'djrichtextfield',
 ]
 
 SITE_ID = 1
@@ -78,6 +83,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
+
 MESSAGES_TAGS = {
     messages.DEBUG: 'brown lighten-4',
     messages.INFO: 'amber accent-4',
@@ -85,8 +92,6 @@ MESSAGES_TAGS = {
     messages.WARNING: 'indigo accent-1',
     messages.ERROR: 'teal lighten-3',
 }
-
-CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
 ROOT_URLCONF = 'main.urls'
 
@@ -179,6 +184,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Cloudinary Settings
+CLOUDIDNARY_URL = os.environ.get('CLOUDINARY_URL')
 
 
 # Default primary key field type
