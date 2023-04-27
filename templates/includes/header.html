@@ -9,13 +9,13 @@
             <ul class="right hide-on-med-and-down">
                 {% if request.user.is_authenticated %}
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
-                <li><a href="{% url 'create_list' %}">Add list</a></li>
+                <li><a href="{% url 'add_list' %}">Add list</a></li>
                 <li><a href="#">My lists</a></li>
                 <li><a href="#">Edit list</a></li> <!-- Edit list name and items including adding new items -->
                 <li><a href="#">Delete list</a></li>
                 {% else %}
                 <li><a href="{% url 'landing' %}">Home</a></li>
-                <li><a href="{% url 'create_list' %}">Create list</a></li>
+                <li><a href="{% url 'add_list' %}">Create list</a></li>
                 <li><a href="{% url 'account_signup' %}" class="waves-effect btn">SIGN UP</a></li>
                 <li><a href="{% url 'account_login' %}">Sign in</a></li>
                 {% endif %}
@@ -28,11 +28,11 @@
     <ul class="sidenav" id="mobile-demo">
         {% if user.is_authenticated %}
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
-            <li><a href="{% url 'create_list' %}">Add list</a></li>
+            <li><a href="{% url 'add_list' %}">Add list</a></li>
             <li><a href="#">Edit list</a></li>
         {% else %}
             <li><a href="{% url 'landing' %}">Home</a></li>
-            <li><a href="{% url 'create_list' %}">Create list</a></li>
+            <li><a href="{% url 'add_list' %}">Create list</a></li>
             <li><a href="{% url 'account_signup' %}">SIGN UP</a></li>
             <li><a href="{% url 'account_login' %}">Sign in</a></li>
         {% endif %}

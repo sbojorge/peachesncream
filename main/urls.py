@@ -21,5 +21,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('', include('home.urls')),
-    path('', include('grocery_list.urls')),
+    path('grocery_list/', include('grocery_list.urls')),
 ]

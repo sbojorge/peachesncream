@@ -4,7 +4,7 @@ from .forms import GroceryForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class ShoppingCreateView(LoginRequiredMixin, CreateView):
+class AddList(LoginRequiredMixin, CreateView):
     """
     Create a grocery shopping list view
     """
@@ -15,4 +15,4 @@ class ShoppingCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(ShoppingCreateView, self).form_valid(form)
+        return super(AddList, self).form_valid(form)

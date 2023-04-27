@@ -14,6 +14,6 @@ class GroceryForm(forms.ModelForm):
         item = forms.CharField(widget=RichTextWidget())
 
         labels = {
-            'name': 'Grocery shopping lists name',
-            'item': 'Item to purchase'
+            'name': 'Name of the list',
+            'item': 'Add the items you need to buy here'
         }

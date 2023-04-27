@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    
+
     # Apps
     'home',
     'grocery_list',
@@ -69,7 +69,7 @@ DJRICHTEXTFIELD_CONFIG = {
         'toolbar': [
             ['NumberedList', 'BulletedList'], ['Undo', 'Redo'],
             ['Maximize']
-        ]       
+        ]     
     }
 }
 
