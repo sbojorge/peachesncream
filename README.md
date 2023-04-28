@@ -56,6 +56,8 @@ List won't be lost nor forgotten, but instead will be right at user's finger tip
 * Django Allauth
     * Authentication and authorisation were done using [Django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
 * Django Crispy forms
+* Django RichTextField
+    * Text editor for assisting the user to create the grocery shopping lists and add widgets
 * Materialize
 * GitHub
 * Convertio
@@ -92,6 +94,11 @@ It was put in place using different functionalities in GitHub:
 
 ### Design
 #### Database schema
+
+* Model
+
+![Grocery model](/static/images/db_schema/picture_1.png)
+
 #### Wireframes
 * Landing page
 
@@ -99,11 +106,17 @@ It was put in place using different functionalities in GitHub:
 
 ![Mobile landing page](/static/images/wireframes/picture_2.png)
 
-* Create a list
+* Create a grocery shopping list
 
 ![Browser create a list](/static/images/wireframes/picture_3.png)
 
-![Mobiel create a list](/static/images/wireframes/picture_4.png)
+![Mobile create a list](/static/images/wireframes/picture_4.png)
+
+* Display the list of created grocery shopping lists
+
+![Browser display the lists](/static/images/wireframes/picture_5.png)
+
+![Mobile display the lists](/static/images/wireframes/picture_6.png)
 
 #### Typography
 A combination of two fonts were used in the desing of the application:<br> 
@@ -164,7 +177,14 @@ This section, which is present in all pages of the application, holds social med
 
 ### Testing
 
-Links to social media and those related to the app (home, sign up, sign in) works well.
+Links to social media and those related to the app:
+ * Home
+ * Sign up
+ * Sign in <!-- currently there's a 'page not found' message when already registered user trys to log in -->
+ * Create list
+ * Add list
+ 
+  work as expected
 
 * Accesibility
 
@@ -202,11 +222,23 @@ The application was successfully deployed at the first attempt.
 
 
 ### Credits
+
+* To [Django Tutorials](https://www.pythontutorial.net/django-tutorial/) for clear explanations and tutorial that help me understand better the concepts and the usage of class based views.
+* To Dee Mc for her wonderful [Recipe & Meal Sharing Tutorial](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) which was a great source of clarification and inspiration during the development of this project.
+* To [Django documentation](https://docs.djangoproject.com/en/4.2/), a well-structured source for finding answers.
+
 #### Media
+* The image for creating the logo comes from [Shutterstock](https://www.shutterstock.com/)
 * Fonts from https://fonts.google.com/ following the article published by Canva at https://www.canva.com/learn/best-google-font-combinations/
 * Color palette from https://mycolor.space/
 
 #### Content
 * Quotation about the Kanban management methodology: visit https://asana.com/resources/what-is-kanban
+
+### Acknowledgments
+
+Always and in first place to my loving and supporting family.
+
+Huge thanks to my mentor, Daisy McGirr for her guidance and professionalism.
 
 [Back to top 🔺](#peachesncream)
