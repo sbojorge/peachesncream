@@ -13,7 +13,7 @@
             <div class="section">
                 <ul>
 
-                    <a href="#" aria-label="Click to display the items within this list">
+                    <a href="{% url 'display_item' grocery.id %}" aria-label="Click to display the items within this list">
                         <li>{{ grocery.name }}</li>
                     </a>
                     <li>created on {{ grocery.created_on }}</li>
