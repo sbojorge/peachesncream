@@ -223,8 +223,13 @@ The application was successfully deployed at the first attempt.
 
 ### Credits
 
+
+* The security check added to the Display_item view was inspired on this article: https://www.codu.co/articles/securing-django-views-from-unauthorized-access-npyb3to_
+
 * To [Django Tutorials](https://www.pythontutorial.net/django-tutorial/) for clear explanations and tutorial that help me understand better the concepts and the usage of class based views.
+
 * To Dee Mc for her wonderful [Recipe & Meal Sharing Tutorial](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) which was a great source of clarification and inspiration during the development of this project.
+
 * To [Django documentation](https://docs.djangoproject.com/en/4.2/), a well-structured source for finding answers.
 
 #### Media

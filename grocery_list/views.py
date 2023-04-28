@@ -3,16 +3,20 @@ from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from .models import Grocery
 from .forms import GroceryForm
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class DisplayItem(DetailView):
+class DisplayItem(UserPassesTestMixin, DetailView):
     """
     Renders the detail of the grocery shopping list
     """
     model = Grocery
     template_name = 'grocery_list/display_item.html'
     context_object_name = 'grocery'
+
+    def test_func(self):
+        return self.request.user == self.get_object().user
 
 
 class Index(LoginRequiredMixin, ListView):
