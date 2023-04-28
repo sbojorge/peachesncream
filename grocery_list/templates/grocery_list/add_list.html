@@ -8,7 +8,7 @@
         <h1>Create a grocery shopping list</h1>
         <div class="divider"></div>
         <div class="section">
-            <form action="POST">
+            <form method="POST">
                 {% csrf_token %} 
                 {{ form|crispy }}
                 <button type="submit" class='waves-effect btn'>Create list</button>
