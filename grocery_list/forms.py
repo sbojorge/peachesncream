@@ -15,5 +15,5 @@ class GroceryForm(forms.ModelForm):
 
         labels = {
             'name': 'Name of the list',
-            'item': 'Add the items you need to buy here'
+            'item': 'Add the items you need to buy here',
         }
