@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'materialize',
     'cloudinary',
     'cloudinary_storage',
-    'djrichtextfield',
+    'djrichtextfield'
 ]
 
 SITE_ID = 1
@@ -69,7 +69,7 @@ DJRICHTEXTFIELD_CONFIG = {
         'toolbar': [
             ['NumberedList', 'BulletedList'], ['Undo', 'Redo'],
             ['Maximize']
-        ]     
+        ],
     }
 }
 
