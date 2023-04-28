@@ -22,7 +22,6 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Homemade Apple', cursive;
-    font-weight: bolder;
     color: #030203;
     padding: 1rem 0;
     margin: auto;
@@ -172,6 +171,11 @@ footer p {
     height: 2rem;
     width: 2rem;
 }
+
+.btn-floating {
+    background-color: #ee6e73; 
+}
+
 
 /* Media queries */
 
