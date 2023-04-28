@@ -13,7 +13,7 @@ class Grocery(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     item = RichTextField(max_length=10000, null=False, blank=False)
-  
+
     class Meta:
         ordering = ['-created_on']
 

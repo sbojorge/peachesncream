@@ -10,6 +10,7 @@
         <div class="section">
             <form method="POST">
                 {% csrf_token %} 
+                {{ form.media }}
                 {{ form|crispy }}
                 <button type="submit" class='waves-effect btn'>Create list</button>
             </form>             
