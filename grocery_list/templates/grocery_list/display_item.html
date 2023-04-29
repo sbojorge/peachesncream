@@ -8,6 +8,8 @@
     <div class="col s12 m8 l9">
         <p>Shopping list: {{ grocery.name }}</p>
         <p>Items: {{ grocery.item|safe }}</p>
+        <a href="{% url 'edit_list' grocery.id %}"><i class="medium material-icons">edit</i></a>
+        <a href="{% url 'delete_list' grocery.id %}"><i class="medium material-icons">delete</i></a>
     </div>
 </div>
 

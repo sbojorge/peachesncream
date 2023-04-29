@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%}Delete list{% endblock %}
+
+{% block content %}
+
+<div class="container row">
+    <div class="col s12 m8 l9">
+        <h1>Delete grocery shopping list </h1>
+        <div class="divider"></div>
+        <div class="section">
+            <form method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{ grocery.name }}" created on {{ grocery.created_on }}?</p>
+
+                <button type="submit" class='waves-effect btn'>Delete list</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

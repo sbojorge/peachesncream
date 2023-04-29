@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block title %}Edit {{ grocery.name }}{% endblock %}
+
+{% block content %}
+
+<!-- repeat this logo in all pages -->
+<a href="{% url 'landing' %}"><img src="{% static '/images/logo/picture_1B.webp' %}" alt="peachesncream logo"></a>
+<div class=" container row">
+    <div class="col s12 m8 l9">
+        <h1>Edit grocery shopping list </h1>
+        <div class="divider"></div>
+        <div class="section">
+            <form method="POST">
+                {% csrf_token %} 
+                {{ form.media }}
+                {{ form|crispy }}
+            <button type="submit" class='waves-effect btn'>Update list</button>
+            </form>             
+
+        </div>
+    </div>
+</div>
+{% endblock %} 

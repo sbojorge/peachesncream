@@ -224,7 +224,9 @@ The application was successfully deployed at the first attempt.
 ### Credits
 
 
-* The security check added to the Display_item view was inspired on this article: https://www.codu.co/articles/securing-django-views-from-unauthorized-access-npyb3to_
+* The security check added to the Display_item view was inspired on [Securing Django Views from Unauthorized Access](https://www.codu.co/articles/securing-django-views-from-unauthorized-access-npyb3to)
+
+* Adding the LoginRequiredMixin in the EditList view comes from [Django Recipe Sharing Tutorial - 13. Edit Recipe](https://www.youtube.com/watch?v=JzDBCZTgVyw&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=14)
 
 * To [Django Tutorials](https://www.pythontutorial.net/django-tutorial/) for clear explanations and tutorial that help me understand better the concepts and the usage of class based views.
 
