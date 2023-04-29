@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class DeleteList(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    """ 
+    """
     Delete a grocery shopping list
     """
     model = Grocery

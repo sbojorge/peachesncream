@@ -11,8 +11,6 @@
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 <li><a href="{% url 'add_list' %}">Add list</a></li>
                 <li><a href="{% url 'index' %}">My lists</a></li>
-                <li><a href="#">Edit list</a></li> <!-- Edit list name and items including adding new items -->
-                <li><a href="#">Delete list</a></li>
                 {% else %}
                 <li><a href="{% url 'landing' %}">Home</a></li>
                 <li><a href="{% url 'add_list' %}">Create list</a></li>
@@ -27,10 +25,11 @@
 
     <ul class="sidenav" id="mobile-demo">
         {% if user.is_authenticated %}
+            <li><a href="{% url 'landing' %}">Home</a></li>
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
             <li><a href="{% url 'add_list' %}">Add list</a></li>
             <li><a href="{% url 'index' %}">My lists</a></li>
-            <li><a href="#">Edit list</a></li>
+           
         {% else %}
             <li><a href="{% url 'landing' %}">Home</a></li>
             <li><a href="{% url 'add_list' %}">Create list</a></li>

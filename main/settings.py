@@ -171,8 +171,8 @@ USE_TZ = True
 # Account Setup
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-# LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = 'grocery_list/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/grocery_list/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
