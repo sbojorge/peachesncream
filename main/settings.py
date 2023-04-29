@@ -88,7 +88,7 @@ CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 MESSAGES_TAGS = {
     messages.DEBUG: 'brown lighten-4',
     messages.INFO: 'amber accent-4',
-    messages.SUCCESS: 'light-blue accent-3',
+    messages.SUCCESS: 'toast-action',
     messages.WARNING: 'indigo accent-1',
     messages.ERROR: 'teal lighten-3',
 }
