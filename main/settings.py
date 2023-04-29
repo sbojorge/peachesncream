@@ -27,7 +27,7 @@ if os.path.exists('env.py'):
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     # Other
     'crispy_forms',
     'crispy_forms_materialize',
-    'materialize',
+    'materializecssform',
     'cloudinary',
     'cloudinary_storage',
     'djrichtextfield'
