@@ -5,8 +5,8 @@
 {% block content %}
 
 <div class="container row">
-    <div class="col s12 m8 l9">
-        <h1>My grocery shopping lists</h1>
+    <div class="col s10 m8 push-s1 push-m2">
+        <h1 class="center-align">My grocery shopping lists</h1>
         
             {% for grocery in grocerys %}
             <div class="divider"></div>
@@ -14,10 +14,10 @@
                 <ul>
 
                     <a href="{% url 'display_item' grocery.id %}" aria-label="Click to display the items within this list">
-                        <li>{{ grocery.name }}</li>
+                        <li  style="color:#0055B2">{{ grocery.name }}</li>
                     </a>
                     <li>created on {{ grocery.created_on }}</li>
-                    <li>updated on {{ grocery.updated_on }}</li><!-- an if statement to display it only if updated -->
+                    <li>updated on {{ grocery.updated_on }}</li>
                     {% empty %}
                     <p>You don't have any list</p>
                 </ul>

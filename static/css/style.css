@@ -92,6 +92,10 @@ main {
     text-align: center;
 }
 
+i.small {
+    padding-top: 0.80rem;
+}
+
 
 
 /* Form */

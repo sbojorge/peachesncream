@@ -50,9 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Other
     'cloudinary',
+    'materializecssform',
     'crispy_forms',
     'crispy_forms_materialize',
-    'materializecssform',
     'djrichtextfield',
     # Apps
     'home',
