@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_forms_materialize',
     'materializecssform',
-    'djrichtextfield'
+    'djrichtextfield',
     # Apps
     'home',
     'grocery_list',
