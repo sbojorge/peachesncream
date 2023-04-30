@@ -180,11 +180,13 @@ This section, which is present in all pages of the application, holds social med
 Links to social media and those related to the app:
  * Home
  * Sign up
- * Sign in <!-- currently there's a 'page not found' message when already registered user trys to log in -->
+ * Sign in 
  * Create list
  * Add list
+ * Edit list
+ * Delete list
  
-  work as expected
+ all of them work as expected.
 
 * Accesibility
 
@@ -220,6 +222,8 @@ The application was early deployed following these steps:
 
 The application was successfully deployed at the first attempt.
 
+#### Bug
+
 
 ### Credits
 
@@ -228,11 +232,6 @@ The application was successfully deployed at the first attempt.
 
 * Adding the LoginRequiredMixin in the EditList view comes from [Django Recipe Sharing Tutorial - 13. Edit Recipe](https://www.youtube.com/watch?v=JzDBCZTgVyw&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=14)
 
-* To [Django Tutorials](https://www.pythontutorial.net/django-tutorial/) for clear explanations and tutorial that help me understand better the concepts and the usage of class based views.
-
-* To Dee Mc for her wonderful [Recipe & Meal Sharing Tutorial](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) which was a great source of clarification and inspiration during the development of this project.
-
-* To [Django documentation](https://docs.djangoproject.com/en/4.2/), a well-structured source for finding answers.
 
 #### Media
 * The image for creating the logo comes from [Shutterstock](https://www.shutterstock.com/)

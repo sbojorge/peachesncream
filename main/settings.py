@@ -17,7 +17,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if os.path.exists('env.py'):
+if os.path.isfile('env.py'):
     import env
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +27,7 @@ if os.path.exists('env.py'):
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -79,13 +79,13 @@ DJRICHTEXTFIELD_CONFIG = {
     }
 }
 
-MESSAGES_TAGS = {
-    messages.DEBUG: 'brown lighten-4',
-    messages.INFO: 'amber accent-4',
-    messages.SUCCESS: 'toast-action',
-    messages.WARNING: 'indigo accent-1',
-    messages.ERROR: 'teal lighten-3',
-}
+MESSAGE_TAGS = {
+        messages.DEBUG: 'toast-info',
+        messages.INFO: 'toast-info',
+        messages.SUCCESS: 'toast-success',
+        messages.WARNING: 'toast-warning',
+        messages.ERROR: 'toast-danger',
+    }
 
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
@@ -185,8 +185,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Cloudinary Settings
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
 
 
 # Default primary key field type

@@ -12,7 +12,14 @@
     {% block materialize_icons %} 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% endblock %} 
+    <!-- Import css -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Javascript files -->
+    {% block onload_js %} 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% endblock %} 
+    <!-- Import js -->
+    <script src="{% static 'js/script.js' %}"></script>
     <title>Peachesncream - {% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -27,8 +34,5 @@
     <!-- Footer -->
     {% include 'includes/footer.html' %}
 </body>
-{% block onload_js %} 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-{% endblock %} 
-<script src="{% static 'js/script.js' %}"></script>
+
 </html>  
