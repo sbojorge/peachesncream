@@ -42,27 +42,31 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django.contrib.sites',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-    # Apps
-    'home',
-    'grocery_list',
-
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
     # Other
+    'cloudinary',
     'crispy_forms',
     'crispy_forms_materialize',
     'materializecssform',
-    'cloudinary',
-    'cloudinary_storage',
     'djrichtextfield'
+    # Apps
+    'home',
+    'grocery_list',
 ]
 
 SITE_ID = 1
+
+# Account Setup
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/grocery_list/'
+LOGOUT_REDIRECT_URL = '/'
 
 DJRICHTEXTFIELD_CONFIG = {
     'js': ['//cdn.ckeditor.com/4.14.0/standard/ckeditor.js'],
@@ -75,6 +79,16 @@ DJRICHTEXTFIELD_CONFIG = {
     }
 }
 
+MESSAGES_TAGS = {
+    messages.DEBUG: 'brown lighten-4',
+    messages.INFO: 'amber accent-4',
+    messages.SUCCESS: 'toast-action',
+    messages.WARNING: 'indigo accent-1',
+    messages.ERROR: 'teal lighten-3',
+}
+
+CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,16 +98,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
-
-MESSAGES_TAGS = {
-    messages.DEBUG: 'brown lighten-4',
-    messages.INFO: 'amber accent-4',
-    messages.SUCCESS: 'toast-action',
-    messages.WARNING: 'indigo accent-1',
-    messages.ERROR: 'teal lighten-3',
-}
 
 ROOT_URLCONF = 'main.urls'
 
@@ -170,13 +174,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Account Setup
-
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/grocery_list/'
-LOGOUT_REDIRECT_URL = '/'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -189,7 +186,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Cloudinary Settings
-CLOUDIDNARY_URL = os.environ.get('CLOUDINARY_URL')
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 
 # Default primary key field type
