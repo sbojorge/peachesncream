@@ -27,11 +27,12 @@ if os.path.isfile('env.py'):
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['newpeachesncream.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['newpeachesncream.herokuapp.com', 'localhost',
+                 '8000-sbojorge-peachesncream-tzoz78k2pq6.ws-eu102.gitpod.io']
 
 
 # Application definition
@@ -80,12 +81,12 @@ DJRICHTEXTFIELD_CONFIG = {
 }
 
 MESSAGE_TAGS = {
-        messages.DEBUG: 'toast-info',
-        messages.INFO: 'toast-info',
-        messages.SUCCESS: 'toast-success',
-        messages.WARNING: 'toast-warning',
-        messages.ERROR: 'toast-danger',
-    }
+    messages.DEBUG: 'toast-info',
+    messages.INFO: 'toast-info',
+    messages.SUCCESS: 'toast-success',
+    messages.WARNING: 'toast-warning',
+    messages.ERROR: 'toast-danger',
+}
 
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
@@ -184,8 +185,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
 
 
 # Default primary key field type
