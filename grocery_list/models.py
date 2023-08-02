@@ -8,6 +8,7 @@ class Grocery(models.Model):
     Model to create a grocery_list
     """
     name = models.CharField(max_length=500, default='My grocery list')
+    shop = models.CharField(max_length=500, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              related_name='grocery_owner')
     created_on = models.DateTimeField(auto_now_add=True)
