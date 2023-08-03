@@ -1,6 +1,8 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} 
 
-<!-- {% load materializecss %} -->
+{% load static %}
+
+{% load materializecss %}
 
 {% block title %}Create shopping list{% endblock %} 
 
@@ -12,7 +14,9 @@
     <div class="divider"></div>
     <div class="input-field section">
       <form method="POST">
-        {% csrf_token %} {{ form.media }} {{ form.as_p }}
+        {% csrf_token %} 
+        {{ form.media }}
+        {{ form.as_p }}
         <button type="submit" class="waves-effect btn">Create list</button>
       </form>
     </div>
