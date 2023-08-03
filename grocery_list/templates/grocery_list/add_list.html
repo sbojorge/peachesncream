@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% load materializecss %}
+<!-- {% load materializecss %} -->
 
 {% block title %}Create shopping list{% endblock %}
 
@@ -13,7 +13,7 @@
         <h1 class="center-align">Create a grocery shopping list</h1>
         <div class="divider"></div>
         <div class="section">
-            <form method="POST">
+            <form method="POST" class="input-field">
                 {% csrf_token %} 
                 {{ form.media }}
                 {{ form.as_p }}
