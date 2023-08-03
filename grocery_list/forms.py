@@ -9,11 +9,12 @@ class GroceryForm(forms.ModelForm):
     """
     class Meta:
         model = Grocery
-        fields = ['name', 'shop','item']
+        fields = ['name', 'category', 'shop', 'item']
 
         item = forms.CharField(widget=RichTextWidget())
 
         labels = {
             'name': 'Name of the list',
             'item': 'Add here the items you need to buy',
+            'category': 'Category',
         }

@@ -7,7 +7,18 @@ class Grocery(models.Model):
     """
     Model to create a grocery_list
     """
+    CATEGORIES = [("groceries", "Groceries"),
+                  ("school", "School"),
+                  ("hardware", "Hardware"),
+                  ("travel", "Travel"),
+                  ("gifts", "Gifts"),
+                  ("decoration", "Decoration"),
+                  ("lifestyle", "Lifestyle"),
+                  ("wishlist", "Wishlist")]
+
     name = models.CharField(max_length=500, default='My grocery list')
+    category = models.CharField(max_length=20, choices=CATEGORIES,
+                                default='Shopping')
     shop = models.CharField(max_length=500, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,
                              related_name='grocery_owner')
