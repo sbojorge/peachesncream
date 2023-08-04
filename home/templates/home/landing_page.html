@@ -1,11 +1,14 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% load static %} 
 
-{% block title %}Landing{% endblock %} 
+{% block title %}Landing{% endblock%}
 
 {% block content %}
 
+{% if request.user.is_authenticated %} 
+{{ home_page.html }}
+{% else %}
 <div id="container">
   <img
     src="{% static 'images/logo/picture_1.webp' %}"
@@ -19,5 +22,6 @@
     now to create your shopping list.<br />
   </p>
 </div>
+{% endif %} 
 
 {% endblock %}
