@@ -232,6 +232,8 @@ The application was successfully deployed at the first attempt.
 
 * Adding the LoginRequiredMixin in the EditList view comes from [Django Recipe Sharing Tutorial - 13. Edit Recipe](https://www.youtube.com/watch?v=JzDBCZTgVyw&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=14)
 
+* Adding and displaying messages to users inspired on [Messages-Django Tutorial](https://pythonprogramming.net/messages-django-tutorial/?completed=/user-registration-django-tutorial/)
+
 
 #### Media
 * The image for creating the logo comes from [Shutterstock](https://www.shutterstock.com/)

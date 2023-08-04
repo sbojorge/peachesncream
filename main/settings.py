@@ -81,14 +81,6 @@ DJRICHTEXTFIELD_CONFIG = {
     }
 }
 
-MESSAGE_TAGS = {
-    messages.DEBUG: 'toast-info',
-    messages.INFO: 'toast-info',
-    messages.SUCCESS: 'toast-success',
-    messages.WARNING: 'toast-warning',
-    messages.ERROR: 'toast-danger',
-}
-
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
 MIDDLEWARE = [

@@ -1,12 +1,47 @@
-{% load static %} 
+{% load static %}
 
-<div class="container row">
+<div class="container">
+  <div class="row">
     <div class="col s6 offset-s6">
-        {% for message in messages %}
-       
-        <div class="toast {{ message.tags }}" id="msg">
-            {{ message|safe }}
-        </div>
-        {% endfor %}
+      {% for message in messages %}
+
+      <div>
+        
+        {% if message.tags == 'success'%}
+        <script>
+          M.toast({
+            html: "{{message}}",
+            classes: "green rounded",
+            displayLength: 2000,
+          });
+        </script>
+        {% elif message.tags == 'info'%}
+        <script>
+          M.toast({
+            html: "{{message}}",
+            classes: "blue rounded",
+            displayLength: 2000,
+          });
+        </script>
+        {% elif message.tags == 'warning'%}
+        <script>
+          M.toast({
+            html: "{{message}}",
+            classes: "orange rounded",
+            displayLength: 10000,
+          });
+        </script>
+        {% elif message.tags == 'error'%}
+        <script>
+          M.toast({
+            html: "{{message}}",
+            classes: "red rounded",
+            displayLength: 10000,
+          });
+        </script>
+        {% endif %}
+      </div>
+      {% endfor %}
     </div>
+  </div>
 </div>
