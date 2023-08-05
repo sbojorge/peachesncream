@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     # Apps
     'home',
     'grocery_list',
+    'contact',
 ]
 
 SITE_ID = 1

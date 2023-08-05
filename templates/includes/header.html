@@ -12,8 +12,9 @@
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 <li><a href="{% url 'add_list' %}">Add list</a></li>
                 <li><a href="{% url 'index' %}">My lists</a></li>
+                <li><a href="{% url 'add_contact' %}">Contact</a></li>
                 {% else %}
-                <li><a href="{% url 'landing' %}">Home</a></li>
+                
                 <li><a href="{% url 'add_list' %}">Create list</a></li>
                 <li><a href="{% url 'account_signup' %}" class="waves-effect btn">SIGN UP</a></li>
                 <li><a href="{% url 'account_login' %}">Sign in</a></li>
@@ -30,9 +31,10 @@
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
             <li><a href="{% url 'add_list' %}">Add list</a></li>
             <li><a href="{% url 'index' %}">My lists</a></li>
+            <li><a href="{% url 'add_contact' %}">Contact</a></li>
            
         {% else %}
-            <li><a href="{% url 'landing' %}">Home</a></li>
+            
             <li><a href="{% url 'add_list' %}">Create list</a></li>
             <li><a href="{% url 'account_signup' %}">SIGN UP</a></li>
             <li><a href="{% url 'account_login' %}">Sign in</a></li>

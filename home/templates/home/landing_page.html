@@ -7,7 +7,7 @@
 {% block content %}
 
 {% if request.user.is_authenticated %} 
-{{ home_page.html }}
+{{'home_page.html' }}
 {% else %}
 <div id="container">
   <img
