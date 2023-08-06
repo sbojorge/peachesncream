@@ -2,13 +2,38 @@
 
 {% load static %} 
 
-{% block title %}Home{% endblock %} 
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
-<div id="container">
-  <h1>Welcome {{ user.username }}</h1>
-  
+<div class="container row">
+  <div class="col s10 m8 push-s1 push-m2">
+    <div class="card">
+      <div class="card-content grey lighten-4">
+        <h1 class="center-align">Welcome {{ user.username }}</h1>
+
+        <div class="divider"></div>
+        <div class="section">
+          <p>
+            You have xxx lists. Click below to see
+            the complete list.
+          </p>
+          <a
+            href="{% url 'index' %}"
+            class="btn-floating btn-large waves-effect"
+            ><i class="small material-icons">library_books</i></a
+          >
+
+          <p>You don't have any list yet. Click below to create a shopping list!</p>
+          <a
+            href="{% url 'add_list' %}"
+            class="btn-floating btn-large waves-effect"
+            ><i class="material-icons">add</i></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
