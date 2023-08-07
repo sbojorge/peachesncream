@@ -11,11 +11,13 @@
     <div class="card">
       <div class="card-content grey lighten-4">
         <h1 class="center-align">Welcome {{ user.username }}</h1>
+        
 
         <div class="divider"></div>
         <div class="section">
+          {% if groceries %}
           <p>
-            You have xxx lists. Click below to see
+            You have {{ groceries.count }} lists. Click below to see
             the complete list.
           </p>
           <a
@@ -23,6 +25,7 @@
             class="btn-floating btn-large waves-effect"
             ><i class="small material-icons">library_books</i></a
           >
+          {% else %}
 
           <p>You don't have any list yet. Click below to create a shopping list!</p>
           <a
@@ -30,6 +33,7 @@
             class="btn-floating btn-large waves-effect"
             ><i class="material-icons">add</i></a
           >
+          {% endif %}
         </div>
       </div>
     </div>
