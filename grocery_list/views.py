@@ -64,7 +64,7 @@ class AddList(LoginRequiredMixin, CreateView):
     model = Grocery
     template_name = 'grocery_list/add_list.html'
     form_class = GroceryForm
-    success_url = '/grocery_list/'
+    success_url = '/grocery_list/index'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
