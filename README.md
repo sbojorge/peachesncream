@@ -3,10 +3,10 @@
 # Peaches 'n cream
 
 
-This is a grocery shopping list application that aims to be pleasant and easy.<br>
-It'll be useful for users searching to organize their trips for groceries.<br>
-The application lets the user create, read, update and/or delete grocery shopping lists.<br>
-List won't be lost nor forgotten, but instead will be right at user's finger tips in his/her mobile.<br>
+Peachesncream is a shopping list web application.<br>
+It'll be useful for users searching to organize their trips for any kind of shopping i.e groceries, wishlists, gifts etc.<br>
+The application lets the user to perform all the CRUD functionalities on shopping lists.<br>
+Lists won't be losts, items won't be forgotten, but instead the user will be able to access it from his/her mobile.<br>
 <br>
 
 <!-- Add an image of the responsive app here and underneath this the link to the deployed app. -->
