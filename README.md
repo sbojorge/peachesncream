@@ -2,31 +2,24 @@
 
 # Peaches 'n cream
 
-
 Peachesncream is a shopping list web application.<br>
 It'll be useful for users searching to organize their trips for any kind of shopping i.e groceries, wishlists, gifts etc.<br>
 The application lets the user to perform all the CRUD functionalities on shopping lists.<br>
 Lists won't be losts, items won't be forgotten, but instead the user will be able to access it from his/her mobile.<br>
 <br>
 
-<!-- Add an image of the responsive app here and underneath this the link to the deployed app. -->
+![Responsiveness](/static/images/design/picture_3.png)
 
-## Contents
+Contents (delete after complete documentation)
 <!-- I've writen this content for helping to organize and follow the README and TESTING content. As GitHub creates automatically a table content after 2 or more headings, I'll probably delete this content once the README will be completed. -->
 
-1. [Technologies](#technologies)
+
 2. Methodology
-    - Themes, Epics and User stories
-    - Backlog refinement
-    - Kanban board    
-3. Design
-    - Database schema
-    - Wireframes (Mobile and desktop)
-    - Typography
-    - Colors
-    - Images?
+    Epic and User stories     
+
+    
 4. Features
-    - Existing features
+    - Existing features (develop)
     - Features to be implemented
 5. Testing
     - Markdown validator
@@ -37,82 +30,70 @@ Lists won't be losts, items won't be forgotten, but instead the user will be abl
     - Accesibility
     - Lighthouse
     - Manual and/or Automated testing
-6. Deployment
-7. Credits
-    - Content
-    - Media
-8. Acknowledgments
+
 
 [Back to top 🔺](#peachesncream)
 
 ------
 
-### Technologies
-<!-- Currently showing here some examples of technologies that I'll probably use. Develop a bit for each of them as shown below for balsamiq -->
+## Technologies used
+The web application was built using Django 3.2.
+
+In addition the following were used for the development of this project:
+
 * HTML
 * CSS
 * JavaScript
 * Django
-* Django Allauth
-    * Authentication and authorisation were done using [Django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
-* Django Crispy forms
-* Django RichTextField
-    * Text editor for assisting the user to create the grocery shopping lists and add widgets
-* Materialize
-* GitHub
-* Convertio
-    * Images were converted to WEBP format using [Convertio](https://tinyjpg.com/) 
-* Resize
-    * Images were resized using [Resizepixel](https://www.resizepixel.com/)
-* TinyJPG
-    * Images were compressed using [TinyJPG](https://tinyjpg.com/)
-* Favicon.io    
-* Balsamiq
-    * Wireframes were created using [Balsamiq Wireframes for desktop](https://balsamiq.com/wireframes/desktop/)
- * Canvas
-    * For creating the logo at [Canvas](https://www.canva.com/)
+* [Django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
+* [Django Cloudinary](https://pypi.org/project/django-cloudinary-storage/)
+* [Django Crispy forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+* [Django RichTextField](https://pypi.org/project/django-richtextfield/)
+* [Materializecss](https://materializecss.com/)
+* [Balsamiq Wireframes for desktop](https://balsamiq.com/wireframes/desktop/)
+* [Canvas](https://www.canva.com/)
+* [Lucidchart](https://www.lucidchart.com/)
 
 [Back to top 🔺](#peachesncream)
 
 ------
 
+## Project management
 ### Methodology
 The methodology used in this project is the Kanban Agile management methodology.
 
 It was put in place using different functionalities in GitHub: 
-* Issues, for the user stories; <!-- add pic -->
-* Milestone (without due date), for the product backlog; <!-- add pic -->
-* Milestone (WITH due date), for each iteration; <!-- add pic -->
-* Project, for the Kanban board. I created a project per iteration. <!-- add pic -->
+* Issues, for the user stories;
+* Milestone (without due date), for the product backlog;
+* Milestone (WITH due date), for each iteration;
+* Project, for the Kanban board.
 > Kanban is an Agile management method built on a philosophy of continuous improvement, where work items are “pulled” from a product backlog into a steady flow of work. The framework is applied using Kanban boards—a form of visual project management. In a Kanban board, tasks—represented as cards—move through stages of work—represented as columns...“To do,” “In progress,” and “Done.” Each column is filled with visual cards that represent individual tasks. A team moves through the columns until the tasks are completed.
 
-<!-- Add a project picture here. -->
+![project](/static/images/agile/picture_1.png)
 
 ------
 
 [Back to top 🔺](#peachesncream)
 
-### Design
-#### Database schema
+## Design
+### Database schema
 
-* Model
+![db](/static/images/db_schema/picture_1.png)
 
-![Grocery model](/static/images/db_schema/picture_1.png)
-
-#### Wireframes
+### Wireframes
 * Landing page
 
 ![Browser landing page](/static/images/wireframes/picture_1.png)
 
 ![Mobile landing page](/static/images/wireframes/picture_2.png)
 
-* Create a grocery shopping list
+* Create a shopping list
 
 ![Browser create a list](/static/images/wireframes/picture_3.png)
 
 ![Mobile create a list](/static/images/wireframes/picture_4.png)
 
-* Display the list of created grocery shopping lists
+* Display the list of created shopping lists
 
 ![Browser display the lists](/static/images/wireframes/picture_5.png)
 
@@ -137,13 +118,11 @@ This combination in the background colors and fonts adds freshness and respect t
 ![Natural palette](/static/images/design/picture_2.png)
 <br>
 
-#### Images
-
 ------
 
 [Back to top 🔺](#peachesncream)
 
-### Features
+## Features
 
 The application counts with the following features:
 
@@ -175,28 +154,19 @@ This section, which is present in all pages of the application, holds social med
 
 ------
 
-### Testing
+[Back to top 🔺](#peachesncream)
 
-Links to social media and those related to the app:
- * Home
- * Sign up
- * Sign in 
- * Create list
- * Add list
- * Edit list
- * Delete list
- 
- all of them work as expected.
-
-* Accesibility
-
-![Wave accesibility results](/static/images/test/wave_result_landing.png)
-
-There is a warning in the Wave accesibility report and this is related to missing headings in the structure of the page, but in the design none heading is necessary.
+## Testing
+Follow this link for the documentation related to [tests](/TESTING.md)
 
 ------
 
-### Deployment
+[Back to top 🔺](#peachesncream)
+
+## Control version
+
+The site was created using GitPod as editor and pushed to Github to the remote repository peachesncream.
+### Early deployment
 
 The application was early deployed following these steps:
 
@@ -208,25 +178,62 @@ The application was early deployed following these steps:
     -   templates including creating the corresponding directory, 
     -   allowed host,    
     
-* Create an external database on ElephantSQL and attach it to the application
-* Create an application on Heroku and prepare the configuration variables on it
+* Create an external database on ElephantSQL and attach it to the application.
+* Create an application on Heroku and prepare the configuration variables on it:
     -   secret key
     -   database url
     -   cloudinary url
     -   port
     -   disable collectstatic
 
-* Create media and static directories
-* Create and prepare a procfile
-* Connect the repository to the Heroku app and deploy branch
+* Create media and static directories.
+* Create and prepare a procfile.
+* Connect the repository to the Heroku app.
+* Allow the automatic deployment in Heroku so the app is reloaded after each push in the workspace.
+* Click on deploy branch.
 
 The application was successfully deployed at the first attempt.
 
-#### Bug
+### Final deployment
 
+For the final deployment, the 'X_FRAME_OPTIONS' variable was set in settings.py. This was made with the purpose f letting the text editor (RichTextEditor) to be loaded.
 
-### Credits
+DEBUG was set to False.
 
+### Forking
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
+
+### Cloning
+
+Cloning is used to create a local copy of the repository created in GitHub.
+Both, the local copy and the remote are syncronized.
+
+- Navigate to the GitHub Repository you want to clone.
+
+- Above the list of files, click Code.
+
+There are 3 possibilities for copying the URL of the repository: HTTPS, SSH key and GitHub CLI.
+I'll develop the one that I use.
+
+- Click the HTTPS tab and copy the URL.
+
+- On your machine, open your text editor, go to the Command palette and click on Git Clone.
+
+- Past the URL, hit enter and choose a folder to save the repository.
+
+------
+
+[Back to top 🔺](#peachesncream)
+
+## Credits
+### Code
 
 * The security check added to the Display_item view was inspired on [Securing Django Views from Unauthorized Access](https://www.codu.co/articles/securing-django-views-from-unauthorized-access-npyb3to)
 
@@ -234,16 +241,17 @@ The application was successfully deployed at the first attempt.
 
 * Adding and displaying messages to users inspired on [Messages-Django Tutorial](https://pythonprogramming.net/messages-django-tutorial/?completed=/user-registration-django-tutorial/)
 
-
-#### Media
+### Media
 * The image for creating the logo comes from [Shutterstock](https://www.shutterstock.com/)
 * Fonts from https://fonts.google.com/ following the article published by Canva at https://www.canva.com/learn/best-google-font-combinations/
 * Color palette from https://mycolor.space/
 
-#### Content
+### Content
 * Quotation about the Kanban management methodology: visit https://asana.com/resources/what-is-kanban
 
-### Acknowledgments
+------
+
+## Acknowledgments
 
 Always and in first place to my loving and supporting family.
 
