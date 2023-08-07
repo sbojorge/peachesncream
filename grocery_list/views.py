@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 class DeleteList(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
-    Delete a grocery shopping list
+    Delete a shopping list
     """
     model = Grocery
     template_name = 'grocery_list/grocery_list_confirm_delete.html'
@@ -21,7 +21,7 @@ class DeleteList(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class EditList(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """
-    Edit a grocery shopping list
+    Edit a shopping list
     """
     model = Grocery
     template_name = 'grocery_list/edit_list.html'
@@ -34,7 +34,7 @@ class EditList(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class DisplayItem(UserPassesTestMixin, DetailView):
     """
-    Renders the detail of the grocery shopping list
+    Renders the detail of the shopping list
     """
     model = Grocery
     template_name = 'grocery_list/display_item.html'
@@ -46,7 +46,7 @@ class DisplayItem(UserPassesTestMixin, DetailView):
 
 class Index(LoginRequiredMixin, ListView):
     """
-    Display the list of created grocery shopping lists
+    Display the list of created shopping lists
     """
     model = Grocery
     template_name = 'grocery_list/index.html'
@@ -59,7 +59,7 @@ class Index(LoginRequiredMixin, ListView):
 
 class AddList(LoginRequiredMixin, CreateView):
     """
-    Create a grocery shopping list view
+    Create a shopping list
     """
     model = Grocery
     template_name = 'grocery_list/add_list.html'
