@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block css %}
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -19,7 +19,7 @@
     />
     {% endblock css %}
     <!-- Import css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <!-- Javascript files -->
 
     <title>Peachesncream - {% block title %}{% endblock %}</title>
@@ -50,17 +50,19 @@
     <!-- Navbar for desktop and mobile -->
     {% include 'includes/header.html' %} {% include 'includes/messages.html' %}
     <!-- Content from each page comes here -->
+    
     <main>
       {% block content %}
-      {% if messages %}
-      {% for message in messages %}
-        <div class="center-align-{{ message.tags }}">
-          {{ message|safe }}
-        </div>
-      {% endfor %}
-      {% endif %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="center-align-{{ message.tags }}">
+              {{ message|safe }}
+            </div>
+          {% endfor %}
+        {% endif %}
       {% endblock %}
     </main>
+    
     <!-- Footer -->
     {% include 'includes/footer.html' %}
   </body>
