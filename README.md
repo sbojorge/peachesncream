@@ -5,8 +5,17 @@
 Peachesncream is a shopping list web application.<br>
 It'll be useful for users searching to organize their trips for any kind of shopping i.e groceries, wishlists, gifts etc.<br>
 The application lets the user to perform all the CRUD functionalities on shopping lists.<br>
-Lists won't be losts, items won't be forgotten, but instead the user will be able to access it from his/her mobile.<br>
+Lists won't be losts, items won't be forgotten, but instead the user will be able to access it from his/her mobile.
 <br>
+
+The website is responsive in the most common screen devices (smartphone, tablet, laptop and desktop) and within the following width categories:
+
+* 320 x 480px
+* 768 x 1024px
+* 1280 x 802px
+* 1600 x 992px
+
+Please click here to visit the deployed site [Peachesncream](https://newpeachesncream.herokuapp.com/)
 
 ![Responsiveness](/static/images/design/picture_3.png)
 
