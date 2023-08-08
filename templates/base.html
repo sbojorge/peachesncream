@@ -50,7 +50,17 @@
     <!-- Navbar for desktop and mobile -->
     {% include 'includes/header.html' %} {% include 'includes/messages.html' %}
     <!-- Content from each page comes here -->
-    <main>{% block content %} {% endblock %}</main>
+    <main>
+      {% block content %}
+      {% if messages %}
+      {% for message in messages %}
+        <div class="center-align-{{ message.tags }}">
+          {{ message|safe }}
+        </div>
+      {% endfor %}
+      {% endif %}
+      {% endblock %}
+    </main>
     <!-- Footer -->
     {% include 'includes/footer.html' %}
   </body>

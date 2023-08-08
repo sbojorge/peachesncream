@@ -6,14 +6,6 @@
 
 {% block content %}
 
-{% if messages %}
-     {% for message in messages %}
-         <div class="center-align-{{ message.tags }}">
-             {{ message|safe }}
-         </div>
-     {% endfor %}
- {% endif %}
-
 <div class="container row">
     <div class="col s10 m8 push-s1 push-m2">
         <h1 class="center-align">Delete shopping list </h1>
@@ -21,6 +13,7 @@
         <div class="section">
             <form method="post">
                 {% csrf_token %}
+                {{ form.media }}
                 <p>Are you sure you want to delete "{{ grocery.name }}" created on {{ grocery.created_on }}?</p>
 
                 <button type="submit" class='waves-effect btn'>Delete list</button>

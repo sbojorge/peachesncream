@@ -5,18 +5,25 @@ from .models import Grocery
 from .forms import GroceryForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
-class DeleteList(LoginRequiredMixin, UserPassesTestMixin,
-                 SuccessMessageMixin, DeleteView):
+class DeleteList(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
-    Delete a shopping list
+    Delete a shopping list and add success message into template
     """
     model = Grocery
     template_name = 'grocery_list/grocery_list_confirm_delete.html'
     context_object_name = 'grocery'
     success_url = '/grocery_list/index'
-    success_message = "shopping list was deleted successfully"
+
+    def delete(self, request, *args, **kwargs):
+        response = super(DeleteList, self).delete(request, *args, **kwargs)
+        messages.success(
+            self.request,
+            'Shopping list was deleted successfully'
+        )
+        return response
 
     def test_func(self):
         return self.request.user == self.get_object().user
@@ -25,7 +32,7 @@ class DeleteList(LoginRequiredMixin, UserPassesTestMixin,
 class EditList(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin,
                UpdateView):
     """
-    Edit a shopping list
+    Edit a shopping list and add success message into template
     """
     model = Grocery
     template_name = 'grocery_list/edit_list.html'
