@@ -7,7 +7,19 @@
 {% block content %}
 
 {% if request.user.is_authenticated %} 
-{{'home_page.html' }}
+
+
+<div id="container">
+  <img
+    src="{% static 'images/logo/picture_1.webp' %}"
+    alt="peachesncream logo"
+    id="logo"
+  />
+  <p>
+    Go to your <a href="{% url 'home' %}">Home page</a>
+    
+  </p>
+</div>
 {% else %}
 <div id="container">
   <img
@@ -23,5 +35,6 @@
   </p>
 </div>
 {% endif %} 
+
 
 {% endblock %}
