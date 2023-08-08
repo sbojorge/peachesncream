@@ -31,10 +31,10 @@ Contents (delete after complete documentation)
     - Existing features (develop)
     - Features to be implemented
 5. Testing
-    - Markdown validator
-    - CSS validator
-    - JS Hint
-    - CI Python linter
+    
+    
+   
+    
     - Responsiveness
     - Accesibility
     - Lighthouse
@@ -269,5 +269,7 @@ I'll develop the one that I use.
 Always and in first place to my loving and supporting family.
 
 Huge thanks to my mentor, Daisy McGirr for her guidance and professionalism.
+
+I'd also like to thank the tutoring team who helped me with debugging.
 
 [Back to top 🔺](#peachesncream)
