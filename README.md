@@ -8,19 +8,9 @@ The application lets the user to perform all the CRUD functionalities on shoppin
 Lists won't be losts, items won't be forgotten, but instead the user will be able to access it from his/her mobile.
 <br>
 
-The website is responsive in the most common screen devices (smartphone, tablet, laptop and desktop) and within the following width categories:
-
-* 320 x 480px
-* 768 x 1024px
-* 1280 x 802px
-* 1600 x 992px
-
 Please click here to visit the deployed site [Peachesncream](https://newpeachesncream.herokuapp.com/)
 
 ![Responsiveness](/static/images/design/picture_3.png)
-
-Contents (delete after complete documentation)
-<!-- I've writen this content for helping to organize and follow the README and TESTING content. As GitHub creates automatically a table content after 2 or more headings, I'll probably delete this content once the README will be completed. -->
 
 
 2. Methodology
@@ -30,15 +20,7 @@ Contents (delete after complete documentation)
 4. Features
     - Existing features (develop)
     - Features to be implemented
-5. Testing
-    
-    
-   
-    
-    - Responsiveness
-    - Accesibility
-    - Lighthouse
-    - Manual and/or Automated testing
+
 
 
 [Back to top 🔺](#peachesncream)
@@ -166,7 +148,7 @@ This section, which is present in all pages of the application, holds social med
 [Back to top 🔺](#peachesncream)
 
 ## Testing
-Follow this link for the documentation related to [tests](/TESTING.md)
+Follow this link for the documentation related to [tests](/TESTING.md).
 
 ------
 
