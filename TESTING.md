@@ -41,8 +41,7 @@ Links related to the app (in the navbar) and those to social medias (in the foot
  2. Give a name to the shopping list (optional).
  3. Choose a category for the shopping list from the select menu.
  4. Type the name of the shop where you'd like to buy (optional).
- 5. Add the items to buy. User can add quantity, brand or any other comment next to the item.
-    Widgets are available (number list, bullets, Undo, Redo, Fullscreen).
+ 5. Add the items to buy.
  6. Click on the "Create list" button.
 
  Expected: A success message should be displayed to the user and the list should be registered in "My lists".
