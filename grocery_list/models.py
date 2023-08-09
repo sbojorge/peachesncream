@@ -17,7 +17,7 @@ class Grocery(models.Model):
                   ("wishlist", "Wishlist"),
                   ("none", "I don't want a category")]
 
-    name = models.CharField(max_length=500, default='My grocery list')
+    name = models.CharField(max_length=500, default='My shopping list')
     category = models.CharField(max_length=20, choices=CATEGORIES,
                                 default='groceries')
     shop = models.CharField(max_length=500, blank=True)

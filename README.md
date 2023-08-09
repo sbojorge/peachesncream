@@ -12,20 +12,9 @@ Please click here to visit the deployed site [Peachesncream](https://newpeachesn
 
 ![Responsiveness](/static/images/design/picture_3.png)
 
-
-2. Methodology
-    Epic and User stories     
-
-    
-4. Features
-    - Existing features (develop)
-    - Features to be implemented
-
-
-
-[Back to top 🔺](#peachesncream)
-
 ------
+ 
+[Back to top 🔺](#peachesncream)
 
 ## Technologies used
 The web application was built using Django 3.2.
@@ -53,12 +42,13 @@ In addition the following were used for the development of this project:
 ### Methodology
 The methodology used in this project is the Kanban Agile management methodology.
 
-It was put in place using different functionalities in GitHub: 
+> Kanban is an Agile management method built on a philosophy of continuous improvement, where work items are “pulled” from a product backlog into a steady flow of work. The framework is applied using Kanban boards—a form of visual project management. In a Kanban board, tasks—represented as cards—move through stages of work—represented as columns...“To do,” “In progress,” and “Done.” Each column is filled with visual cards that represent individual tasks. A team moves through the columns until the tasks are completed.
+
+The methodology was put in place using different functionalities in GitHub: 
 * Issues, for the user stories;
 * Milestone (without due date), for the product backlog;
 * Milestone (WITH due date), for each iteration;
 * Project, for the Kanban board.
-> Kanban is an Agile management method built on a philosophy of continuous improvement, where work items are “pulled” from a product backlog into a steady flow of work. The framework is applied using Kanban boards—a form of visual project management. In a Kanban board, tasks—represented as cards—move through stages of work—represented as columns...“To do,” “In progress,” and “Done.” Each column is filled with visual cards that represent individual tasks. A team moves through the columns until the tasks are completed.
 
 ![project](/static/images/agile/picture_1.png)
 
@@ -68,6 +58,15 @@ It was put in place using different functionalities in GitHub:
 
 ## Design
 ### Database schema
+
+The database is composed of 3 models (2 are customised, which meets the assessment criteria of a "minimum of one custom model"): 
+
+- User,
+- Grocery_list,
+- Contact.
+
+The User model is at center, being connected to the 2 others by the id.<br>
+There isn't any direct relation between the Grocery_list and Contact models.
 
 ![db](/static/images/db_schema/picture_1.png)
 
@@ -117,19 +116,26 @@ This combination in the background colors and fonts adds freshness and respect t
 
 The application counts with the following features:
 
-* Landing page
+### Landing page
+This is the cover of the application.<br>
+Logo and a brief explanation about the purpose of the app can be found here as well as a Sign up button.
 
 ![Landing page on desktop](/static/images/features/picture_1.png)
 
 ![Landing page on mobile](/static/images/features/picture_2.png)
 
-* Navigation bar
+The page also includes:
 
-This element holds 3 links in the landing page: Home, Sign up and Sign in
+#### Navigation bar
+This element has 3 links for unauthenticated users: Create list, Sign up and Sign in.
 
 ![Desktop navbar](/static/images/features/picture_3.png)
 
-On medium and small devices, the navigation bar gets collapsed into a hamburguer icon:
+And 5 links for authenticated users: Home, Logout, Add list, My lists and Contact.
+
+![Desktop navbar](/static/images/features/picture_3a.png)
+
+On medium and small devices, the navigation is collapsed into a hamburguer icon:
 
 ![Hamburguer icon](/static/images/features/picture_4.png)
 
@@ -137,15 +143,125 @@ When the user clicks on that icon, the content of the navigation bar is displaye
 
 ![Navbar mobile](/static/images/features/picture_5.png)
 
-* Footer
-
+#### Footer
 This section, which is present in all pages of the application, holds social media icons to the GitHub and LinkedIn profiles of the developper:
 
 ![Footer](/static/images/features/picture_6.png)
 
+### Authentication pages:
+#### Sign up
+Users can create an account by clicking the Sign up button and completing the form:
+
+![signup](/static/images/features/picture_9.png)
+
+Warnings are displayed to the user in case of error:
+
+![signup](/static/images/features/picture_9a.png)
+
+After signing up, the user is redirected to the [Create shopping list](#addlist).
+
+#### Sign in
+Users can access their account, create and manage their shopping list by clicking the sign in button and completing the form:
+
+![signin](/static/images/features/picture_10.png)
+
+Warnings (color and text) are displayed to the user in case of error:
+
+![signin1](/static/images/features/picture_11.png)
+
+After signing in, a sucess message is displayed to the user and he/she is redirected to the Home page:
+
+![signin2](/static/images/features/picture_11a.png)
+
+The success message feature is also available upon submission of a valid form when:
+- adding a shopping list,
+- editing a shopping list,
+- deleting a shopping list and
+- logging out.
+
+### Home page
+A welcome message including the username of the authenticated user is displayed along with the number of the owned existing shopping lists (if any) and a button to access them.
+
+![Home1](/static/images/features/picture_8.png)
+
+If the user doesn't have any list the displayed button can redirect him/her to the "Create a shopping list" page:
+
+![Home2](/static/images/features/picture_7.png)
+
+### CRUD pages
+#### Add list (Create shopping list page)
+The authenticated user can create here any kind of shopping lists by completing the form and hitting the "Create button" at the end.<br>
+The form has the following fields:
+- Name of the list (optional), which has "My shopping list" as placeholder,
+- Category (optional), which has "Groceries" as placeholder,
+- Shop (optional), so the user can register where to buy/pick up the products,
+- Items (required), user can add quantity, brand or any other comment next to the item.<br>
+Widgets are available (number list, bullets, Undo, Redo, Fullscreen).
+
+![add1](/static/images/features/picture_12.png)
+
+![add2](/static/images/features/picture_12a.png)
+
+
+#### My lists (My shopping lists page)
+The authenticated user can retrieve the list of his/her owned shopping lists by clicking on "My lists" on the navbar.<br>
+Shopping lists are displayed in descending order.<br> An "Add" button (plus icon) is available as well in case the user wants to create a new list:
+
+ ![read1](/static/images/test/CRUD/picture_3.png)
+
+#### Edit a shopping list
+From the displayed list of owned shopping list, the user can see the detail of any list by clicking on its name.<br>
+An "Edit" button (pencil icon) is available.<br>
+
+![edit](/static/images/features/picture_14.png)
+
+#### Delete a shopping list
+In case the user wishes to delete the displayed list, the "Delete" button (trash icon) is available on this same page.
+
+![delete1](/static/images/features/picture_15.png)
+
+#### Delete confirmation page
+In order to prevent undesired deletion, a  delete confirmation page feature is provided:
+
+![delete2](/static/images/features/picture_15a.png)
+
+### Contact
+This feature is available for letting the user communicate with the developer which maintain the application.
+It can be used for suggestions, concerns, etc:
+
+![contact](/static/images/features/picture_16.png)
+
+### Preventive actions
+#### 403 page
+The user is unable to perform RUD actions (read, update, delete) on other user's shopping list.
+In case a user tries to access someone else shopping list, he/she is redirected to the 403 page:
+
+![403](/static/images/features/picture_17.png)
+
+#### Accesing the Sign up after logging in
+Authenticated users can't access the landing page nor the Sign up button via the URL:
+
+![redirects](/static/images/features/picture_17a.png)
+
+### Sign out
+When clicked, the "Logout" link, redirects the user to a "Sign out confirmation" page.<br>
+If confirmed, the user will be logged out.
+
+![signout](/static/images/features/picture_18.png)
+
 ------
 
 [Back to top 🔺](#peachesncream)
+
+## Features to be implemented
+
+1. Forgot password, as an aid to the sign in.
+2. An item category, so products can be better organized.
+3. A shop app, so users can create/add their favorite shops and details
+4. A cancel button for actions like adding, updating or deleting a shopping list
+5. Sharing lists with other users (like family members) so they can see/edit the shopping list as well.
+
+------
 
 ## Testing
 Follow this link for the documentation related to [tests](/TESTING.md).
