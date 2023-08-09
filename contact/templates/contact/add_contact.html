@@ -12,7 +12,7 @@
     <h1 class="center-align">A suggestion, a concern?</h1>
     <div class="divider"></div>
     <div class="input-field section">
-      <form method="POST">
+      <form method="POST" >
         {% csrf_token %} 
         {{ form.media }}
         {{ form|materializecss }}

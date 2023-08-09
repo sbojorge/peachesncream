@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
-    # Other
     'cloudinary',
+    # Other
     'materializecssform',
     'crispy_forms',
     'crispy_forms_materialize',
