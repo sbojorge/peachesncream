@@ -34,7 +34,7 @@ DEBUG = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['newpeachesncream.herokuapp.com', 'localhost',
-                 '8000-sbojorge-peachesncream-tzoz78k2pq6.ws-eu102.gitpod.io']
+                 '8000-sbojorge-peachesncream-tzoz78k2pq6.ws-eu104.gitpod.io']
 
 # Application definition
 
