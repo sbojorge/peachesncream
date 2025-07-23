@@ -29,12 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['newpeachesncream.herokuapp.com', 'localhost',
-                 '8000-sbojorge-peachesncream-tzoz78k2pq6.ws-eu104.gitpod.io']
+                 '8000-sbojorge-peachesncream-tzoz78k2pq6.ws-eu104.gitpod.io', '127.0.0.1']
 
 # Application definition
 
