@@ -11,14 +11,17 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
 from django.contrib.messages import constants as messages
 import os
-if os.path.isfile('env.py'):
-    import env
+from dotenv import load_dotenv #This loads environment variables from .env file?
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env file (if it exists)
+# This should be at the very top of your settings.py, before accessing any env vars.
+load_dotenv() # <--- This handles loading GOOGLE_APPLICATION_CREDENTIALS and GS_BUCKET_NAME from .env
 # TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
@@ -27,6 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    raise ImproperlyConfigured("The SECRET_KEY environment variable must be set.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -172,14 +177,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'#change to Google Cloud Storage or disable this installed app?
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_URL = '/static/'
+#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'#change to Google Cloud Storage or disable this installed app?
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+#MEDIA_URL = '/media/'
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+# Google Cloud Storage Settings
+# Retrieve GS_BUCKET_NAME from environment variables loaded by python-dotenv
+GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
+# Add an assertion or error handling for debugging if the bucket name is critical
+if not GS_BUCKET_NAME:
+    raise ImproperlyConfigured("GS_BUCKET_NAME environment variable not set.")
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/media/'
+STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/static/'
+
+# Other optional GCS settings:
+# GS_PROJECT_ID = 'your-gcp-project-id'
+# GS_DEFAULT_ACL = 'publicRead'
+# GS_QUERYSTRING_AUTH = True
 
 
 # Default primary key field type
