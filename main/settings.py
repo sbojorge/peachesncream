@@ -53,9 +53,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'cloudinary_storage',#change to Google Cloud Storage or disable this installed app?
     'django.contrib.staticfiles',
-    'cloudinary',#change to Google Cloud Storage or disable this installed app?
     # Other
     'materializecssform',
     'crispy_forms',
@@ -177,15 +175,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-#STATIC_URL = '/static/'
-#STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-#MEDIA_URL = '/media/'
-#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-#CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-
 # Google Cloud Storage Settings
 # Retrieve GS_BUCKET_NAME from environment variables loaded by python-dotenv
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
@@ -198,11 +187,6 @@ STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/media/'
 STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/static/'
-
-# Other optional GCS settings:
-# GS_PROJECT_ID = 'your-gcp-project-id'
-# GS_DEFAULT_ACL = 'publicRead'
-# GS_QUERYSTRING_AUTH = True
 
 
 # Default primary key field type
