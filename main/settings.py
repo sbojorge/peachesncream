@@ -130,7 +130,15 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default':{
+            'ENGINE':'django.db.backends.mysql',
+            'NAME': os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
+            'HOST': '/cloudsql/{}'.format(os.environ.get('CLOUD_SQL_CONNECTION_NAME')),
+        # Port is not needed when connecting via Unix socket
+        # 'PORT': '',
+        } 
     }
 else:
     DATABASES = {
