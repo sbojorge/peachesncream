@@ -10,18 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
-from django.contrib.messages import constants as messages
 import os
-from dotenv import load_dotenv #This loads environment variables from .env file?
+from pathlib import Path
 import dj_database_url
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load environment variables from .env file (if it exists)
-# This should be at the very top of your settings.py, before accessing any env vars.
-load_dotenv() # <--- This handles loading GOOGLE_APPLICATION_CREDENTIALS and GS_BUCKET_NAME from .env
+#This loads environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
+
 # TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
@@ -30,8 +30,6 @@ load_dotenv() # <--- This handles loading GOOGLE_APPLICATION_CREDENTIALS and GS_
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-if not SECRET_KEY:
-    raise ImproperlyConfigured("The SECRET_KEY environment variable must be set.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -128,17 +126,12 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Simplified DATABASES configuration using dj-database-url
+# This will automatically use the DATABASE_URL environment variable if it exists.
+# If it doesn't exist (e.g., in your local development environment), it will fall back to SQLite.
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default':{
-            'ENGINE':'django.db.backends.mysql',
-            'NAME': os.environ.get('DB_NAME'),
-            'USER': os.environ.get('DB_USER'),
-            'PASSWORD': os.environ.get('DB_PASSWORD'),
-            'HOST': '/cloudsql/{}'.format(os.environ.get('CLOUD_SQL_CONNECTION_NAME')),
-        # Port is not needed when connecting via Unix socket
-        # 'PORT': '',
-        } 
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
@@ -186,10 +179,6 @@ USE_TZ = True
 # Google Cloud Storage Settings
 # Retrieve GS_BUCKET_NAME from environment variables loaded by python-dotenv
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
-# Add an assertion or error handling for debugging if the bucket name is critical
-if not GS_BUCKET_NAME:
-    raise ImproperlyConfigured("GS_BUCKET_NAME environment variable not set.")
-
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
