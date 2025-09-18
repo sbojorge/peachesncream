@@ -36,8 +36,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['newpeachesncream.herokuapp.com', 'localhost',
-                 '8000-sbojorge-peachesncream-tzoz78k2pq6.ws-eu104.gitpod.io', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
