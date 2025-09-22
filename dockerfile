@@ -37,4 +37,4 @@ COPY --chown=appuser:appgroup . .
 RUN python manage.py collectstatic --noinput
 
 # Command to run the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "applications.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "3", "applications.wsgi:application"]
