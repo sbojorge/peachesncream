@@ -1,40 +1,35 @@
-# Stage 1: Build Stage
+# Use a Python base image for building the app
 FROM python:3.12-slim as builder
 
-# Set environment variables for Python
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Create a directory for your application
+# Set the working directory for the application
 WORKDIR /app
 
-# Install dependencies
+# Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-# Stage 2: Production Stage
+# Use a minimal base image for the final production container
 FROM python:3.12-slim
 
-# Set environment variables again
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Expose the port Cloud Run will use
-EXPOSE 8000
-
-# Create a user to run the app
+# Create a non-root user and group
 RUN addgroup --system appgroup && adduser --system --group appgroup appuser
-USER appuser
 
-# Set the working directory
+# Copy the installed packages and application code from the builder stage
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /app /app
+
+# Set the working directory for the final image
 WORKDIR /app
 
-# Copy the application code and installed packages from the builder stage
-COPY --chown=appuser:appgroup --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
-COPY --chown=appuser:appgroup . .
+# Set environment variables for the application
+ENV PORT 8000
+ENV PYTHONUNBUFFERED=1
 
-# Run collectstatic to prepare static files
-RUN python manage.py collectstatic --noinput
+# Change the user to the newly created non-root user
+USER appuser
 
-# Command to run the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "3", "main.wsgi:application"]
+# Expose the application port
+EXPOSE 8000
+
+# Run the Django application with Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "main.wsgi:application"]
