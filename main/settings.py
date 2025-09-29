@@ -36,7 +36,11 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1', 'peachesncream-782513543316.europe-southwest1.run.app').split(',')
+# CORRECTED settings.py line
+ALLOWED_HOSTS = os.environ.get(
+    'DJANGO_ALLOWED_HOSTS',
+    'localhost,127.0.0.1,peachesncream-782513543316.europe-southwest1.run.app'
+).split(',')
 
 # Application definition
 
