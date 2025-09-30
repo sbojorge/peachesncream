@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+import sys
 from django.contrib.messages import constants as messages
+from google.oauth2 import service_account
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -178,50 +180,59 @@ USE_TZ = True
 
 # Google Cloud Storage Settings
 # Retrieve GS_BUCKET_NAME from environment variables loaded by python-dotenv
-# Check if GCS is configured (e.g., using a non-empty bucket name)
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
+# Retrieve GS_PROJECT_ID if needed (optional)
+GS_PROJECT_ID = os.environ.get('GS_PROJECT_ID', 'applications-461317') # Use the project ID from your key file for clarity
 
+# --- BEGIN GCS CONFIG BLOCK ---
 if GS_BUCKET_NAME:
-    # --- GCS/Static/Media Configuration ---
+    print("DEBUG: GS_BUCKET_NAME is set. Starting GCS configuration.", file=sys.stderr)
 
     # 1. Define the path where the secret (keyfile) is mounted in Cloud Run.
-    #    ***Ensure this path matches the mount path you set in the Cloud Run service's Secrets tab!***
-    GCS_KEYFILE_PATH = os.environ.get('GCS_KEYFILE_PATH', '/etc/secrets/DJANGO_GCS_KEY1.json') 
+    # NOTE: Your key file name in the secret JSON you provided was 'DJANGO_GCS_KEY1.json', 
+    # but the path should be the full mount path (e.g., /etc/secrets/DJANGO_GCS_KEY1.json)
+    # The default value here should match the full path set in Cloud Run Volume Mounts
+    GCS_KEYFILE_PATH = os.environ.get('GCS_KEYFILE_PATH', '/etc/secrets/DJANGO_GCS_KEY1') 
 
     # 2. Explicitly load credentials from the mounted JSON key file.
-    #    You need 'google-auth' installed in your environment for this.
-    try:
-        from google.oauth2 import service_account
-        
-        # Load the credentials from the mounted file
-        if os.path.exists(GCS_KEYFILE_PATH):
+    GCS_CREDENTIALS = None 
+    
+    # Perform the check using the configured path
+    if os.path.exists(GCS_KEYFILE_PATH):
+        print(f"DEBUG: Key file found at {GCS_KEYFILE_PATH}. Attempting to load credentials...", file=sys.stderr)
+        try:
+            # Load the credentials from the mounted file
             GCS_CREDENTIALS = service_account.Credentials.from_service_account_file(GCS_KEYFILE_PATH)
-        else:
-            # Fallback for local testing or if the file isn't found (though it should be in Cloud Run)
-            GCS_CREDENTIALS = None 
-            print(f"Warning: GCS key file not found at {GCS_KEYFILE_PATH}. Falling back to default credentials.")
+            print("DEBUG: GS_CREDENTIALS successfully created from file.", file=sys.stderr)
 
-    except ImportError:
-        # Handle case where google-auth might not be installed (unlikely in a GCS setup)
-        GCS_CREDENTIALS = None
-        print("Error: 'google-auth' library is required for GCS signing.")
+        except Exception as e:
+            # CRITICAL: This will expose if the JSON is malformed or the library fails
+            print(f"FATAL ERROR: Failed to load service account file: {e}", file=sys.stderr) 
 
+    else:
+        # Fallback for local testing or if the file isn't found (THIS IS YOUR SUSPECTED FAILURE POINT)
+        print(f"WARNING: GCS key file NOT found at {GCS_KEYFILE_PATH}. Falling back to default credentials.", file=sys.stderr)
 
     # 3. Configure storages and pass the credentials
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     
     # PASS THE EXPLICIT CREDENTIALS OBJECT
-    # This is the line that tells the backend how to sign requests and fixes the error
     if GCS_CREDENTIALS:
         GS_CREDENTIALS = GCS_CREDENTIALS
     
+    # NEW: Add the service account email (required for signing even with explicit credentials)
+    # Use the email from the JSON file you provided:
+    GS_SA_EMAIL = 'peachesncream-srv-gcs@applications-461317.iam.gserviceaccount.com' 
+    
+    # Your other settings
+    GS_PROJECT_ID = GS_PROJECT_ID
     MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/media/'
     STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/static/'
-    
-    # Optional: You might also need to set this if you want to use the storage
-    # for media/static outside of Django.
-    # FILE_UPLOAD_MAX_MEMORY_SIZE = 0 # Forces uploads to disk/storage immediately
+
+else:
+    print("DEBUG: GS_BUCKET_NAME not set. Skipping GCS configuration.", file=sys.stderr)
+# --- END GCS CONFIG BLOCK ---
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
