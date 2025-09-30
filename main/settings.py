@@ -178,13 +178,50 @@ USE_TZ = True
 
 # Google Cloud Storage Settings
 # Retrieve GS_BUCKET_NAME from environment variables loaded by python-dotenv
+# Check if GCS is configured (e.g., using a non-empty bucket name)
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME')
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
-MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/media/'
-STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/static/'
+if GS_BUCKET_NAME:
+    # --- GCS/Static/Media Configuration ---
 
+    # 1. Define the path where the secret (keyfile) is mounted in Cloud Run.
+    #    ***Ensure this path matches the mount path you set in the Cloud Run service's Secrets tab!***
+    GCS_KEYFILE_PATH = os.environ.get('GCS_KEYFILE_PATH', '/etc/secrets/DJANGO_GCS_KEY1.json') 
+
+    # 2. Explicitly load credentials from the mounted JSON key file.
+    #    You need 'google-auth' installed in your environment for this.
+    try:
+        from google.oauth2 import service_account
+        
+        # Load the credentials from the mounted file
+        if os.path.exists(GCS_KEYFILE_PATH):
+            GCS_CREDENTIALS = service_account.Credentials.from_service_account_file(GCS_KEYFILE_PATH)
+        else:
+            # Fallback for local testing or if the file isn't found (though it should be in Cloud Run)
+            GCS_CREDENTIALS = None 
+            print(f"Warning: GCS key file not found at {GCS_KEYFILE_PATH}. Falling back to default credentials.")
+
+    except ImportError:
+        # Handle case where google-auth might not be installed (unlikely in a GCS setup)
+        GCS_CREDENTIALS = None
+        print("Error: 'google-auth' library is required for GCS signing.")
+
+
+    # 3. Configure storages and pass the credentials
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    
+    # PASS THE EXPLICIT CREDENTIALS OBJECT
+    # This is the line that tells the backend how to sign requests and fixes the error
+    if GCS_CREDENTIALS:
+        GS_CREDENTIALS = GCS_CREDENTIALS
+    
+    MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/media/'
+    STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/static/'
+    
+    # Optional: You might also need to set this if you want to use the storage
+    # for media/static outside of Django.
+    # FILE_UPLOAD_MAX_MEMORY_SIZE = 0 # Forces uploads to disk/storage immediately
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
